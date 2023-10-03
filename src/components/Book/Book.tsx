@@ -11,37 +11,69 @@ import React, {
 import { Page, PageCover } from "./Page";
 import { recipes } from "../../data/recipes";
 
-function MyBook(props: any) {
-  const bookHandler = useRef();
-  const [isMobile, setIsMobile] = useState(true);
+function isWindowMobileSize() {
+  const { innerWidth: width } = window;
+  return width <= 768;
+}
+
+function MyBook(props: {
+  onToggle: () => void;
+  interestedPage: number | null;
+  isShelfOpen: boolean;
+  closeBook: () => void;
+}) {
+  const bookHandlerRef = useRef();
+  const bookHandler = bookHandlerRef.current as any;
+  const [isMobile, setIsMobile] = useState(isWindowMobileSize);
+
+  useEffect(() => {
+    if (props.interestedPage !== null) {
+      bookHandler.pageFlip().flip(props.interestedPage);
+      props.onToggle();
+    }
+  }, [props.interestedPage]);
+
+  // useEffect(() => {
+  //   if (!props.isShelfOpen) {
+  //     props.interestedPage;
+  //   }
+  // }, [props.isShelfOpen]);
 
   // setIsmobile on resize observer
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      const { width } = entries[0].contentRect;
-      setIsMobile(width <= 768);
+      setIsMobile(isWindowMobileSize());
     });
+    resizeObserver.observe(window.document.body);
 
     return () => {
       resizeObserver.disconnect();
     };
   }, []);
 
+  function onToggle() {
+    if (props.isShelfOpen && props.interestedPage !== null) {
+      props.closeBook(); // close shelf and clear `interestedPage`
+    } else {
+      props.onToggle();
+    }
+  }
+
   return (
     <>
       <HTMLFlipBook
-        minWidth={515}
+        minWidth={350}
         usePortrait={isMobile}
-        width={550}
-        height={733}
-        size="fixed"
+        width={350}
+        height={500}
+        size="stretch"
         maxWidth={600}
         minHeight={400}
         maxHeight={1533}
         showCover={true}
         maxShadowOpacity={0.5}
         mobileScrollSupport={true}
-        ref={bookHandler}
+        ref={bookHandlerRef}
       >
         <PageCover>
           <h1>Evolution of Chinese Recipes in Australian Print</h1>
@@ -59,13 +91,7 @@ function MyBook(props: any) {
 
         <PageCover>THE END</PageCover>
       </HTMLFlipBook>
-      {/* <button
-        onClick={() => {
-          console.log(bookHandler.current.pageFlip().flipNext());
-        }}
-      >
-        next
-      </button> */}
+      <button onClick={onToggle}>Toggle</button>
     </>
   );
 }

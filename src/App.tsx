@@ -12,20 +12,32 @@ import { Page, PageCover } from "./components/Book/Page";
 import MyBook from "./components/Book/Book";
 import cx from "classnames";
 
-function Narrative() {
+function Narrative(props: { setInterestedPage: (page: number) => void }) {
   return (
     <div>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-        nostrum illo eveniet unde? Velit in fugit sapiente temporibus eum ut!
-        Doloribus, impedit facilis aliquid id et obcaecati cumque temporibus
-        tenetur.
+        <a
+          onClick={() => {
+            props.setInterestedPage(1);
+          }}
+        >
+          Lorem
+        </a>
+        ipsum dolor, sit amet consectetur adipisicing elit. Repellat nostrum
+        illo eveniet unde? Velit in fugit sapiente temporibus eum ut! Doloribus,
+        impedit facilis aliquid id et obcaecati cumque temporibus tenetur.
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-        nostrum illo eveniet unde? Velit in fugit sapiente temporibus eum ut!
-        Doloribus, impedit facilis aliquid id et obcaecati cumque temporibus
-        tenetur.
+        <a
+          onClick={() => {
+            props.setInterestedPage(3);
+          }}
+        >
+          Lorem
+        </a>{" "}
+        ipsum dolor, sit amet consectetur adipisicing elit. Repellat nostrum
+        illo eveniet unde? Velit in fugit sapiente temporibus eum ut! Doloribus,
+        impedit facilis aliquid id et obcaecati cumque temporibus tenetur.
       </p>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
@@ -80,16 +92,34 @@ function App() {
     setIsShelfOpen((prev) => !prev); // toggle
   }
 
+  const [interestedPage, setInterestedPage] = useState<number | null>(null);
+
+  function clickToPage(page: number) {
+    setInterestedPage(page);
+    setIsShelfOpen(true);
+  }
+
+  function closeBook() {
+    setIsShelfOpen(false);
+    setInterestedPage(null);
+  }
+
   return (
-    <>
-      <Narrative />
+    <div>
+      <Narrative setInterestedPage={setInterestedPage} />
       <button onClick={toggleShelf}>Open</button>
+
       <div
         className={cx(styles.bookShelf, isShelfOpen && styles.bookShelfOpen)}
       >
-        <MyBook />
+        <MyBook
+          interestedPage={interestedPage}
+          isShelfOpen={isShelfOpen}
+          onToggle={toggleShelf}
+          closeBook={closeBook}
+        />
       </div>
-    </>
+    </div>
   );
 }
 
