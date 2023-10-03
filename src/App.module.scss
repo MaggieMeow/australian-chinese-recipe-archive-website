@@ -1,0 +1,11 @@
+.bookShelf {
+  position: fixed;
+  right: 1em;
+  // top: 1em;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(calc(100% + 5em));
+}
+
+.bookShelfOpen {
+  transform: translateX(0);
+}
