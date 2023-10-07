@@ -109,7 +109,12 @@ function App() {
     setIsShelfOpen(true);
   }
 
-  function onBookClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function onBookClick(
+    e:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.TouchEvent<HTMLDivElement>
+  ) {
+    console.log(e);
     e.stopPropagation();
     e.preventDefault();
     if (!isShelfOpen) {
@@ -117,20 +122,29 @@ function App() {
     }
   }
 
+  function preventEvent(e: React.TouchEvent<HTMLDivElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   return (
     <div>
-      <Narrative setInterestedPage={setInterestedPage} />
-      <button onClick={toggleShelf}>Open</button>
+      <div className={styles.mainContentContainer}>
+        <Narrative setInterestedPage={setInterestedPage} />
+        <button onClick={toggleShelf}>Open</button>
+      </div>
 
       <div
         className={cx(styles.bookShelf, isShelfOpen && styles.bookShelfOpen)}
       >
         <div
           onClickCapture={onBookClick}
+          onTouchStartCapture={onBookClick}
+          onTouchEnd={preventEvent}
           style={{
             position: "absolute",
             width: "100%",
-            height: "100%",
+            height: "calc(100% + 20px)",
             zIndex: isShelfOpen ? 0 : 100,
           }}
         />

@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   forwardRef,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -13,7 +14,7 @@ import { recipes } from "../../data/recipes";
 
 function isWindowMobileSize() {
   const { innerWidth: width } = window;
-  return width <= 768;
+  return width <= 850;
 }
 
 function MyBook(props: {
@@ -25,6 +26,7 @@ function MyBook(props: {
   const bookHandlerRef = useRef();
   const bookHandler = bookHandlerRef.current as any;
   const [isMobile, setIsMobile] = useState(isWindowMobileSize);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     if (props.interestedPage !== null) {
@@ -36,6 +38,7 @@ function MyBook(props: {
   // setIsmobile on resize observer
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
+      setScreenWidth(window.innerWidth);
       setIsMobile(isWindowMobileSize());
     });
     resizeObserver.observe(window.document.body);
@@ -52,20 +55,28 @@ function MyBook(props: {
 
     props.closeBook(); // close shelf and clear `interestedPage`
   }
+  console.log("isMobile", isMobile);
 
+  const bookWidth = useMemo(() => {
+    if (isMobile) {
+      return screenWidth - 20;
+    }
+    return 350;
+  }, [screenWidth, isMobile]);
+
+  // console.log("bookWidth", bookWidth);
   return (
     <>
       <HTMLFlipBook
-        onUpdate={console.log}
-        onChangeState={console.log}
-        minWidth={350}
         usePortrait={isMobile}
+        minWidth={350}
         width={350}
-        height={500}
-        size="stretch"
         maxWidth={600}
-        minHeight={400}
-        maxHeight={1533}
+        height={500}
+        minHeight={500}
+        maxHeight={500}
+        // autoSize={isMobile ? false : true}
+        size="stretch"
         showCover={true}
         maxShadowOpacity={0.5}
         mobileScrollSupport={true}
@@ -82,8 +93,15 @@ function MyBook(props: {
 
         <PageCover>THE END</PageCover>
       </HTMLFlipBook>
-      <button className="close-button" onClickCapture={onClose}>
-        Close
+
+      <button
+        className="close-button"
+        onClickCapture={onClose}
+        style={{
+          visibility: props.isShelfOpen ? "visible" : "hidden",
+        }}
+      >
+        X
       </button>
     </>
   );

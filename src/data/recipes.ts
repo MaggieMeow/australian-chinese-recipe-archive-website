@@ -8,6 +8,7 @@ export const recipes = [
     date: "1939-04-01",
     publisher: "Canberra Times",
     troveUrl: "https://trove.nla.gov.au/newspaper/article/2629162",
+    tags: ["dessert", "fusion"],
   },
   {
     coverImageUrl: "https://source.unsplash.com/random?id=1",

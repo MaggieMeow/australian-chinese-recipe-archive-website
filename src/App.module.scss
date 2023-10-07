@@ -1,19 +1,19 @@
 .bookShelf {
   position: fixed;
   width: 100vw;
-  top: 0;
+  bottom: 0;
   left: 0;
   display: flex;
   justify-content: center;
   transition: transform 0.5s;
   // curve for closing animation
   transition-timing-function: cubic-bezier(0.64, -0.46, 0.47, 0.96);
-  transform: translateY(calc(-95%));
+  transform: translateY(calc(95%));
 
   filter: drop-shadow(0 0 0.5em rgba(0, 0, 0, 0.5));
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .bookShelf {
     left: 0.1em;
   }
@@ -24,4 +24,10 @@
   transition-timing-function: cubic-bezier(0.07, 0.85, 0.33, 1.22);
 
   transform: translateY(0);
+}
+
+.mainContentContainer {
+  margin-bottom: 3em;
+  height: calc(100vh - 3em);
+  overflow-y: auto;
 }

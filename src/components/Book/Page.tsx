@@ -18,8 +18,16 @@ export const Page = forwardRef<
     children?: ReactNode;
   }
 >((props, ref) => {
-  const { title, coverImageUrl, content, screenshotUrl, date, publisher } =
-    props.recipe;
+  const {
+    title,
+    coverImageUrl,
+    content,
+    screenshotUrl,
+    date,
+    publisher,
+    troveUrl,
+    tags,
+  } = props.recipe;
   return (
     <div className="page" ref={ref}>
       <div className="page-content">
@@ -28,10 +36,23 @@ export const Page = forwardRef<
           <h3>{date}</h3>
         </div>
         <h2 className="page-title">{title}</h2>
+        {tags?.length && (
+          <div className="page-tags">
+            {tags.map((tag, index) => (
+              <span className="page-tag">
+                {tag} {index < tags.length - 1 ? "," : ""}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="page-text">
           <img className="page-image page-image-bordered" src={coverImageUrl} />
           <p>{content}</p>
           <img className="page-screenshot" src={screenshotUrl} />
+          <a className="book-button lined" href={troveUrl} target="blank">
+            <span>View on</span>
+            <img src="trove-colour.svg" />
+          </a>
         </div>
         <div className="page-footer">{props.number + 1}</div>
       </div>
