@@ -103,6 +103,9 @@ function App() {
     setIsShelfOpen(false);
     setInterestedPage(null);
   }
+  function openBook() {
+    setIsShelfOpen(true);
+  }
 
   return (
     <div>
@@ -115,7 +118,7 @@ function App() {
         <MyBook
           interestedPage={interestedPage}
           isShelfOpen={isShelfOpen}
-          onToggle={toggleShelf}
+          openBook={openBook}
           closeBook={closeBook}
         />
       </div>

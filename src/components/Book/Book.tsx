@@ -17,10 +17,10 @@ function isWindowMobileSize() {
 }
 
 function MyBook(props: {
-  onToggle: () => void;
   interestedPage: number | null;
   isShelfOpen: boolean;
   closeBook: () => void;
+  openBook: () => void;
 }) {
   const bookHandlerRef = useRef();
   const bookHandler = bookHandlerRef.current as any;
@@ -29,18 +29,21 @@ function MyBook(props: {
   useEffect(() => {
     if (props.interestedPage !== null) {
       bookHandler.pageFlip().flip(props.interestedPage);
-      props.onToggle();
+      props.openBook();
     }
   }, [props.interestedPage]);
 
-  // useEffect(() => {
-  //   if (!props.isShelfOpen) {
-  //     props.interestedPage;
-  //   }
-  // }, [props.isShelfOpen]);
-
   // setIsmobile on resize observer
   useEffect(() => {
+    requestIdleCallback(() => {
+      const bookParentEl = document.querySelector(".stf__parent");
+      if (bookParentEl) {
+        bookParentEl.addEventListener("click", () => {
+          props.openBook();
+        });
+      }
+    });
+
     const resizeObserver = new ResizeObserver((entries) => {
       setIsMobile(isWindowMobileSize());
     });
@@ -55,7 +58,7 @@ function MyBook(props: {
     if (props.isShelfOpen && props.interestedPage !== null) {
       props.closeBook(); // close shelf and clear `interestedPage`
     } else {
-      props.onToggle();
+      props.closeBook();
     }
   }
 
@@ -82,16 +85,18 @@ function MyBook(props: {
 
         {recipes.map((recipe, index) => (
           <Page
+            key={recipe.title}
             coverImageUrl={recipe.coverImageUrl}
             title={recipe.title}
             content={recipe.content}
+            screenshotUrl={recipe.screenshotUrl}
             number={index}
           />
         ))}
 
         <PageCover>THE END</PageCover>
       </HTMLFlipBook>
-      <button onClick={onToggle}>Toggle</button>
+      <button onClick={onToggle}>Close</button>
     </>
   );
 }
