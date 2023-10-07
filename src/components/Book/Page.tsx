@@ -6,28 +6,33 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { recipes } from "../../data/recipes";
+
 import "./styles.scss";
 
 export const Page = forwardRef<
   HTMLDivElement,
   {
+    recipe: (typeof recipes)[number];
     number: number;
-    title: string;
-    coverImageUrl: string;
-    content: string;
-    screenshotUrl?: string;
     children?: ReactNode;
   }
 >((props, ref) => {
+  const { title, coverImageUrl, content, screenshotUrl, date, publisher } =
+    props.recipe;
   return (
     <div className="page" ref={ref}>
       <div className="page-content">
-        <h2 className="page-header">{props.title}</h2>
-        <div className="page-image-wrap">
-          <img className="page-image" src={props.coverImageUrl} />
+        <div className="page-header">
+          <h3>{publisher}</h3>
+          <h3>{date}</h3>
         </div>
-        <div className="page-text">{props.content}</div>
-        <img className="page-screenshot" src={props.screenshotUrl} />
+        <h2 className="page-title">{title}</h2>
+        <div className="page-text">
+          <img className="page-image page-image-bordered" src={coverImageUrl} />
+          <p>{content}</p>
+          <img className="page-screenshot" src={screenshotUrl} />
+        </div>
         <div className="page-footer">{props.number + 1}</div>
       </div>
     </div>

@@ -5,6 +5,9 @@ export const recipes = [
     title: "Rosed Peaches",
     content: `Rosed Peaches.— Here is the recipe for another Chinese delicacy, which is well worth trying. You will need twenty-five peaches, one pound of sugar, half a cupful of water, half a pint of vinegar, half a tablespoonful of Cerebos salt, red roses and cloves. Make a syrup by boiling the sugar, watery vinegar and salt together for twenty minutes. Stand the peaches in hot water for about three minutes, then rub the down off then with a towel. On the stem part of each peach put a rose. Using the cloves as skewers, fasten the roses to the peaches. Place rosed peaches in the syrup, and sim- mer gently until soft.`,
     screenshotUrl: "public/recipe-screenshots/rosed-peaches-screenshot.png",
+    date: "1939-04-01",
+    publisher: "Canberra Times",
+    troveUrl: "https://trove.nla.gov.au/newspaper/article/2629162",
   },
   {
     coverImageUrl: "https://source.unsplash.com/random?id=1",

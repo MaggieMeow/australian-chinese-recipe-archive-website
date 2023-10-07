@@ -35,15 +35,6 @@ function MyBook(props: {
 
   // setIsmobile on resize observer
   useEffect(() => {
-    requestIdleCallback(() => {
-      const bookParentEl = document.querySelector(".stf__parent");
-      if (bookParentEl) {
-        bookParentEl.addEventListener("click", () => {
-          props.openBook();
-        });
-      }
-    });
-
     const resizeObserver = new ResizeObserver((entries) => {
       setIsMobile(isWindowMobileSize());
     });
@@ -51,20 +42,22 @@ function MyBook(props: {
 
     return () => {
       resizeObserver.disconnect();
+      const bookParentEl = document.querySelector(".stf__parent");
     };
   }, []);
 
-  function onToggle() {
-    if (props.isShelfOpen && props.interestedPage !== null) {
-      props.closeBook(); // close shelf and clear `interestedPage`
-    } else {
-      props.closeBook();
-    }
+  function onClose(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    props.closeBook(); // close shelf and clear `interestedPage`
   }
 
   return (
     <>
       <HTMLFlipBook
+        onUpdate={console.log}
+        onChangeState={console.log}
         minWidth={350}
         usePortrait={isMobile}
         width={350}
@@ -80,23 +73,18 @@ function MyBook(props: {
       >
         <PageCover>
           <h1>Evolution of Chinese Recipes in Australian Print</h1>
-          <h2>By Yundi Maggie Li, Carina, Sihan, Lesin and Jim.</h2>
+          <h2>Curated by Maggie, Carina, Sihan, Lesin and Jim.</h2>
         </PageCover>
 
         {recipes.map((recipe, index) => (
-          <Page
-            key={recipe.title}
-            coverImageUrl={recipe.coverImageUrl}
-            title={recipe.title}
-            content={recipe.content}
-            screenshotUrl={recipe.screenshotUrl}
-            number={index}
-          />
+          <Page key={recipe.title} recipe={recipe} number={index} />
         ))}
 
         <PageCover>THE END</PageCover>
       </HTMLFlipBook>
-      <button onClick={onToggle}>Close</button>
+      <button className="close-button" onClickCapture={onClose}>
+        Close
+      </button>
     </>
   );
 }

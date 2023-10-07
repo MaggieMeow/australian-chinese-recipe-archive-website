@@ -1,7 +1,9 @@
 import HTMLFlipBook from "react-pageflip";
 import styles from "./App.module.scss";
 import React, {
+  EventHandler,
   FC,
+  MouseEventHandler,
   ReactNode,
   forwardRef,
   useEffect,
@@ -107,6 +109,14 @@ function App() {
     setIsShelfOpen(true);
   }
 
+  function onBookClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    e.stopPropagation();
+    e.preventDefault();
+    if (!isShelfOpen) {
+      openBook();
+    }
+  }
+
   return (
     <div>
       <Narrative setInterestedPage={setInterestedPage} />
@@ -115,6 +125,15 @@ function App() {
       <div
         className={cx(styles.bookShelf, isShelfOpen && styles.bookShelfOpen)}
       >
+        <div
+          onClickCapture={onBookClick}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            zIndex: isShelfOpen ? 0 : 100,
+          }}
+        />
         <MyBook
           interestedPage={interestedPage}
           isShelfOpen={isShelfOpen}
