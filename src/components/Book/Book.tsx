@@ -14,7 +14,7 @@ import { recipes } from "../../data/recipes";
 
 function isWindowMobileSize() {
   const { innerWidth: width } = window;
-  return width <= 850;
+  return width <= 768;
 }
 
 function MyBook(props: {
@@ -26,7 +26,6 @@ function MyBook(props: {
   const bookHandlerRef = useRef();
   const bookHandler = bookHandlerRef.current as any;
   const [isMobile, setIsMobile] = useState(isWindowMobileSize);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     if (props.interestedPage !== null) {
@@ -38,7 +37,6 @@ function MyBook(props: {
   // setIsmobile on resize observer
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      setScreenWidth(window.innerWidth);
       setIsMobile(isWindowMobileSize());
     });
     resizeObserver.observe(window.document.body);
@@ -57,25 +55,20 @@ function MyBook(props: {
   }
   console.log("isMobile", isMobile);
 
-  const bookWidth = useMemo(() => {
-    if (isMobile) {
-      return screenWidth - 20;
-    }
-    return 350;
-  }, [screenWidth, isMobile]);
-
-  // console.log("bookWidth", bookWidth);
+  const isPadWidth = useMemo(() => {
+    return window.innerWidth < 725 && window.innerWidth > 630;
+  }, []);
   return (
     <>
       <HTMLFlipBook
         usePortrait={isMobile}
-        minWidth={350}
-        width={350}
+        minWidth={isPadWidth ? window.innerWidth - 100 : 350}
+        width={isPadWidth ? window.innerWidth - 100 : 350}
         maxWidth={600}
-        height={500}
-        minHeight={500}
-        maxHeight={500}
-        // autoSize={isMobile ? false : true}
+        height={isPadWidth ? window.innerHeight - 100 : 500}
+        minHeight={isPadWidth ? window.innerHeight - 100 : 500}
+        maxHeight={isPadWidth ? window.innerHeight - 100 : 500}
+        autoSize={isPadWidth ? false : true}
         size="stretch"
         showCover={true}
         maxShadowOpacity={0.5}
