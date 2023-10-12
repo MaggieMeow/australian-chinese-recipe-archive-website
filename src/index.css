@@ -32,6 +32,13 @@ h6 {
   font-weight: 600;
 }
 
+::view-transition-old(root) {
+  animation-duration: 0.5s;
+}
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
 * {
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 400;

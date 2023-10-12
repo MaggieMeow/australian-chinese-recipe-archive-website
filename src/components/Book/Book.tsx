@@ -95,13 +95,43 @@ function MyBook() {
       </HTMLFlipBook>
 
       <button
-        className="close-button"
+        className={`relative t-0 pt-1 pointer bg-[#f3ecdb] rounded-sm shadow-sm h-6 w-6 transition-all ${
+          isShelfOpen ? "opacity-100" : "opacity-0"
+        }`}
         onClickCapture={onClose}
         style={{
           visibility: isShelfOpen ? "visible" : "hidden",
         }}
       >
-        ▼
+        <span>
+          <svg
+            className="animate-bounce w-6 h-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              {" "}
+              <g id="Arrow / Caret_Down_MD">
+                {" "}
+                <path
+                  id="Vector"
+                  d="M16 10L12 14L8 10"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+              </g>{" "}
+            </g>
+          </svg>
+        </span>
       </button>
     </>
   );
