@@ -61,7 +61,6 @@ function MyBook() {
 
     closeBook(); // close shelf and clear `interestedPage`
   }
-  console.log("isMobile", isMobile);
 
   const isPadWidth = useMemo(() => {
     return window.innerWidth < 725 && window.innerWidth > 630;

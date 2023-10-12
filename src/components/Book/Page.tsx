@@ -9,6 +9,7 @@ import React, {
 import { recipes } from "../../data/recipes";
 
 import "./styles.scss";
+import troveLogo from "../../assets/trove-colour.svg";
 
 export const Page = forwardRef<
   HTMLDivElement,
@@ -51,7 +52,7 @@ export const Page = forwardRef<
           <img className="page-screenshot" src={screenshotUrl} />
           <a className="book-button lined" href={troveUrl} target="blank">
             <span>View on</span>
-            <img src="trove-colour.svg" />
+            <img src={troveLogo} />
           </a>
         </div>
         <div className="page-footer">{props.number + 1}</div>
