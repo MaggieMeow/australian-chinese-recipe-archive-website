@@ -79,12 +79,7 @@ const Layout = () => {
             zIndex: isShelfOpen ? 0 : 100,
           }}
         />
-        <MyBook
-          interestedPage={interestedPage}
-          isShelfOpen={isShelfOpen}
-          openBook={openBook}
-          closeBook={closeBook}
-        />
+        <MyBook />
       </div>
     </div>
   );
