@@ -1,25 +1,26 @@
-import HTMLFlipBook from "react-pageflip";
-import styles from "./App.module.scss";
+import cx from "classnames";
 import React, {
   EventHandler,
   FC,
+  forwardRef,
   MouseEventHandler,
   ReactNode,
-  forwardRef,
   useEffect,
   useRef,
   useState,
 } from "react";
-import { Page, PageCover } from "./components/Book/Page";
-import MyBook from "./components/Book/Book";
-import cx from "classnames";
-import { Header } from "./components/Header";
+import HTMLFlipBook from "react-pageflip";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import { useStore } from "./store";
-import { NarrativePage } from "./pages/narrative";
+
+import styles from "./App.module.scss";
+import MyBook from "./components/Book/Book";
+import { Page, PageCover } from "./components/Book/Page";
+import { Header } from "./components/Header";
 import { AboutPage } from "./pages/about";
 import { AckPage } from "./pages/acknowledgement";
 import { DataPage } from "./pages/data";
+import { NarrativePage } from "./pages/narrative";
+import { useStore } from "./store";
 
 const Layout = () => {
   const isShelfOpen = useStore((state) => state.isShelfOpen);
@@ -45,7 +46,6 @@ const Layout = () => {
       | React.MouseEvent<HTMLDivElement, MouseEvent>
       | React.TouchEvent<HTMLDivElement>
   ) {
-    console.log(e);
     e.stopPropagation();
     e.preventDefault();
     if (!isShelfOpen) {
