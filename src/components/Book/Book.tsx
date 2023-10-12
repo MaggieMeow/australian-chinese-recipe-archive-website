@@ -11,28 +11,37 @@ import React, {
 } from "react";
 import { Page, PageCover } from "./Page";
 import { recipes } from "../../data/recipes";
+import { useStore } from "../../store";
 
 function isWindowMobileSize() {
   const { innerWidth: width } = window;
   return width <= 768;
 }
 
-function MyBook(props: {
-  interestedPage: number | null;
-  isShelfOpen: boolean;
-  closeBook: () => void;
-  openBook: () => void;
-}) {
+function MyBook() {
+  const isShelfOpen = useStore((state) => state.isShelfOpen);
+  const setIsShelfOpen = useStore((state) => state.setIsShelfOpen);
+  const interestedPage = useStore((state) => state.interestedPage);
+  const setInterestedPage = useStore((state) => state.setInterestedPage);
+
+  const openBook = () => {
+    setIsShelfOpen(true);
+  };
+  const closeBook = () => {
+    setIsShelfOpen(false);
+    setInterestedPage(null);
+  };
+
   const bookHandlerRef = useRef();
   const bookHandler = bookHandlerRef.current as any;
   const [isMobile, setIsMobile] = useState(isWindowMobileSize);
 
   useEffect(() => {
-    if (props.interestedPage !== null) {
-      bookHandler.pageFlip().flip(props.interestedPage);
-      props.openBook();
+    if (interestedPage !== null) {
+      bookHandler.pageFlip().flip(interestedPage);
+      openBook();
     }
-  }, [props.interestedPage]);
+  }, [interestedPage]);
 
   // setIsmobile on resize observer
   useEffect(() => {
@@ -43,7 +52,6 @@ function MyBook(props: {
 
     return () => {
       resizeObserver.disconnect();
-      const bookParentEl = document.querySelector(".stf__parent");
     };
   }, []);
 
@@ -51,7 +59,7 @@ function MyBook(props: {
     e.preventDefault();
     e.stopPropagation();
 
-    props.closeBook(); // close shelf and clear `interestedPage`
+    closeBook(); // close shelf and clear `interestedPage`
   }
   console.log("isMobile", isMobile);
 
@@ -91,10 +99,10 @@ function MyBook(props: {
         className="close-button"
         onClickCapture={onClose}
         style={{
-          visibility: props.isShelfOpen ? "visible" : "hidden",
+          visibility: isShelfOpen ? "visible" : "hidden",
         }}
       >
-        X
+        ▼
       </button>
     </>
   );
