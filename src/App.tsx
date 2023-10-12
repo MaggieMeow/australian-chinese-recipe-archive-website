@@ -25,21 +25,6 @@ import { useStore } from "./store";
 const Layout = () => {
   const isShelfOpen = useStore((state) => state.isShelfOpen);
   const setIsShelfOpen = useStore((state) => state.setIsShelfOpen);
-  const interestedPage = useStore((state) => state.interestedPage);
-  const setInterestedPage = useStore((state) => state.setInterestedPage);
-
-  function clickToPage(page: number) {
-    setInterestedPage(page);
-    setIsShelfOpen(true);
-  }
-
-  function closeBook() {
-    setIsShelfOpen(false);
-    setInterestedPage(null);
-  }
-  function openBook() {
-    setIsShelfOpen(true);
-  }
 
   function onBookClick(
     e:
@@ -49,7 +34,7 @@ const Layout = () => {
     e.stopPropagation();
     e.preventDefault();
     if (!isShelfOpen) {
-      openBook();
+      setIsShelfOpen(true);
     }
   }
 
@@ -62,7 +47,11 @@ const Layout = () => {
     <div>
       <div className={styles.mainContentContainer}>
         <Header />
-        <Outlet />
+        {/* the text content section */}
+        <section className="max-w-[1200px] mx-auto px-12 pt-8">
+          {/* Outlet is the slot that the router children elements render in */}
+          <Outlet />
+        </section>
       </div>
 
       <div
