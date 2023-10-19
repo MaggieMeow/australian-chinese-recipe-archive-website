@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ReactNode, forwardRef } from "react";
 import { recipes } from "../../data/recipes";
 
 import "./styles.scss";
@@ -23,7 +16,7 @@ export const Page = forwardRef<
     title,
     coverImageUrl,
     content,
-    screenshotUrl,
+    // screenshotUrl,
     date,
     publisher,
     troveUrl,
@@ -47,15 +40,24 @@ export const Page = forwardRef<
           </div>
         )}
         <div className="page-text">
-          <img className="page-image page-image-bordered" src={coverImageUrl} />
-          <p>{content}</p>
-          <img className="page-screenshot" src={screenshotUrl} />
+          <img
+            className="page-cover-image page-image-bordered"
+            src={coverImageUrl}
+          />
+          <p
+            style={{
+              marginTop: content.length > 700 ? 0 : "7em",
+            }}
+          >
+            {content}
+          </p>
+          {/* <img className="page-screenshot" src={screenshotUrl} /> */}
           <a className="book-button lined" href={troveUrl} target="blank">
             <span>View on</span>
             <img src={troveLogo} />
           </a>
         </div>
-        <div className="page-footer">{props.number + 1}</div>
+        <div className="page-footer">{props.number}</div>
       </div>
     </div>
   );
@@ -70,3 +72,34 @@ export const PageCover = forwardRef<HTMLDivElement, { children?: ReactNode }>(
     );
   }
 );
+
+export const IllustrationPage = forwardRef<
+  HTMLDivElement,
+  {
+    recipe: (typeof recipes)[number];
+    number: number;
+    children?: ReactNode;
+  }
+>((props, ref) => {
+  const { screenshotUrls, date, publisher } = props.recipe;
+
+  return (
+    <div className="page" ref={ref}>
+      <div className="page-content">
+        <div className="page-header">
+          <h3>{publisher}</h3>
+          <h3>{date}</h3>
+        </div>
+        <div className="page-text">
+          {screenshotUrls.map((screenshotUrl) => (
+            <img
+              className="page-image page-image-bordered"
+              src={screenshotUrl}
+            />
+          ))}
+        </div>
+        <div className="page-footer">{props.number}</div>
+      </div>
+    </div>
+  );
+});

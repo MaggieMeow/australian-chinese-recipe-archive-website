@@ -1,0 +1,152 @@
+.data-page {
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+  table td,
+  table th {
+    padding: 0;
+  }
+
+  .title {
+    padding-top: 0pt;
+    color: #000000;
+    font-size: 26pt;
+    padding-bottom: 3pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  .subtitle {
+    padding-top: 0pt;
+    color: #666666;
+    font-size: 15pt;
+    padding-bottom: 16pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  li {
+    color: #000000;
+    font-size: 11pt;
+  }
+  p {
+    margin: 0;
+    color: #000000;
+    font-size: 11pt;
+  }
+  h1 {
+    padding-top: 20pt;
+    color: #000000;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    font-family: "IM Fell English", serif;
+    font-weight: 600;
+  }
+  h2 {
+    padding-top: 18pt;
+    color: #000000;
+    font-size: 16pt;
+    padding-bottom: 6pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  h3 {
+    padding-top: 16pt;
+    color: #434343;
+    font-size: 14pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  h4 {
+    padding-top: 14pt;
+    color: #666666;
+    font-size: 12pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  h5 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+  h6 {
+    padding-top: 12pt;
+    color: #666666;
+    font-size: 11pt;
+    padding-bottom: 4pt;
+    font-family: "Arial";
+    line-height: 1.15;
+    page-break-after: avoid;
+    font-style: italic;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+  img {
+    width: 80%;
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  h1 span {
+    font-family: "IM Fell English", serif;
+    font-weight: 600;
+    font-size: 48px;
+  }
+
+  h2 span {
+    font-size: 36px;
+  }
+
+  h3 span {
+    font-size: 24px;
+  }
+
+  ul {
+    // list-style: circle inside none;
+    list-style: square !important;
+  }
+
+  li {
+    padding-bottom: 1em;
+  }
+}

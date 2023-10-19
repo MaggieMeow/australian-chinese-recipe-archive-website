@@ -9,7 +9,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Page, PageCover } from "./Page";
+import { IllustrationPage, Page, PageCover } from "./Page";
 import { recipes } from "../../data/recipes";
 import { useStore } from "../../store";
 
@@ -65,6 +65,24 @@ function MyBook() {
   const isPadWidth = useMemo(() => {
     return window.innerWidth < 725 && window.innerWidth > 630;
   }, []);
+
+  const pages = useMemo(() => {
+    const result = [];
+    for (let i = 0; i < recipes.length; i++) {
+      result.push(
+        <Page key={recipes[i].title} recipe={recipes[i]} number={i * 2 + 1} />
+      );
+      result.push(
+        <IllustrationPage
+          key={recipes[i].title + "illustration"}
+          number={i * 2 + 2}
+          recipe={recipes[i]}
+        />
+      );
+    }
+    return result;
+  }, []);
+
   return (
     <>
       <HTMLFlipBook
@@ -83,13 +101,14 @@ function MyBook() {
         ref={bookHandlerRef}
       >
         <PageCover>
-          <h1>Evolution of Chinese Recipes in Australian Print</h1>
-          <h2>Curated by Maggie, Carina, Sihan, Lesin and Jim.</h2>
+          {/* <h1>Evolution of Chinese Recipes in Australian Print</h1>
+          <h2>Curated by Maggie, Carina, Sihan, Lesin and Jim.</h2> */}
         </PageCover>
 
-        {recipes.map((recipe, index) => (
+        {/* {recipes.map((recipe, index) => (
           <Page key={recipe.title} recipe={recipe} number={index} />
-        ))}
+        ))} */}
+        {pages}
 
         <PageCover>THE END</PageCover>
       </HTMLFlipBook>
@@ -117,9 +136,7 @@ function MyBook() {
               stroke-linejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
-              {" "}
               <g id="Arrow / Caret_Down_MD">
-                {" "}
                 <path
                   id="Vector"
                   d="M16 10L12 14L8 10"
@@ -127,8 +144,8 @@ function MyBook() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></path>{" "}
-              </g>{" "}
+                ></path>
+              </g>
             </g>
           </svg>
         </span>
