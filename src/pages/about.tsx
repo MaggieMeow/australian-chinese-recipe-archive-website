@@ -5,13 +5,14 @@ export function AboutPage() {
     <article>
       <h1>About</h1>
       <p>
-        This project was made as part of the HUMN 6001: Intro to Digital
-        Humanities and Public Culture course at ANU during Sem 2 2023.
+        This project was developed as part of the HUMN 2001/6001: Intro to
+        Digital Humanities and Public Culture course at Australian National
+        University in Semester 2, 2023.
       </p>
       <h2>Team members</h2>
       <ul>
         <li>
-          <h3>Maggie Yundi Li, Web,Data & Content Specialist</h3>
+          <h3>Maggie Yundi Li, Web, Data & Content Specialist</h3>
           <p>
             Maggie collected and cleaned data from Trove to construct a dataset
             of relevant Chinese recipes. Maggie created and visualized the data,
