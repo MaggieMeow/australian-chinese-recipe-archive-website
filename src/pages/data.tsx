@@ -5,7 +5,7 @@ import image4 from "../assets/images/image4.png";
 import image5 from "../assets/images/image5.png";
 import image6 from "../assets/images/image6.png";
 import image7 from "../assets/images/image7.png";
-import "./data.scss";
+import "./style.scss";
 
 export function DataPage() {
   return (

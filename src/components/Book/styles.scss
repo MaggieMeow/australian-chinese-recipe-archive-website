@@ -28,6 +28,7 @@
   }
 
   .page-header {
+    flex: 0 0 30px;
     color: black;
     text-align: center;
     display: flex;
@@ -64,7 +65,13 @@
     max-width: 100%;
     margin-bottom: 1em;
   }
-
+  .screenshot-container {
+    height: calc(100% - 60px);
+  }
+  .screenshot-img {
+    max-height: 100%;
+    max-width: 100%;
+  }
   .page-image-bordered {
     border: 2px solid black;
   }
@@ -102,7 +109,8 @@
   }
 
   .page-footer {
-    height: 30px;
+    flex: 0 0 30px;
+
     border-top: solid 1px hsl(35, 55%, 90%);
     font-size: 80%;
     color: hsl(35, 20%, 15%);
@@ -142,6 +150,7 @@
 
     .page-content {
       // width: 90%;
+
       padding: 0 3em;
       display: flex;
       flex-direction: column;

@@ -150,3 +150,32 @@
     padding-bottom: 1em;
   }
 }
+
+article {
+  margin-bottom: 5em;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin-bottom: 0.6rem;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}

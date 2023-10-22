@@ -33,7 +33,7 @@ export const Page = forwardRef<
         {tags?.length && (
           <div className="page-tags">
             {tags.map((tag, index) => (
-              <span className="page-tag">
+              <span className="page-tag" key={tag}>
                 {tag} {index < tags.length - 1 ? "," : ""}
               </span>
             ))}
@@ -90,13 +90,11 @@ export const IllustrationPage = forwardRef<
           <h3>{publisher}</h3>
           <h3>{date}</h3>
         </div>
-        <div className="page-text">
-          {screenshotUrls.map((screenshotUrl) => (
-            <img
-              className="page-image page-image-bordered"
-              src={screenshotUrl}
-            />
-          ))}
+        <div className="screenshot-container">
+          <img
+            className="screenshot-img page-image-bordered"
+            src={screenshotUrls[0]}
+          />
         </div>
         <div className="page-footer">{props.number}</div>
       </div>

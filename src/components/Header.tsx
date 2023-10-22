@@ -43,7 +43,7 @@ export function Header() {
   return (
     <nav className="w-full">
       <h1 className="flex justify-center text-5xl py-2">
-        Chinese Australian Archive
+        Chinese Recipes in Australian Print
       </h1>
       <div className="border-y border-solid border-black px-4 w-full flex justify-around">
         {routes.map((route, index) => (

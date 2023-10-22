@@ -1,6 +1,8 @@
+import "./style.scss";
+
 export function AckPage() {
   return (
-    <div>
+    <article>
       <h1>Acknowledgements</h1>
       <p>
         We acknowledge the Traditional Custodians and Owners of Country
@@ -13,7 +15,21 @@ export function AckPage() {
         acknowledge that sovereignty has never been ceded and that Australia
         always was, and always will be, Aboriginal land.
       </p>
-      <p></p>
-    </div>
+      <p>
+        We dedicate this project to the deep cultural heritage and contributions
+        of Chinese communities in shaping the diverse tapestry of modern
+        Australia.
+      </p>
+      <p>
+        We would like to express our sincere gratitude to our lecturer,
+        Fiannuala Morgan, for her unwavering support and guidance throughout the
+        project. Her expertise and commitment were essential in our journey to
+        navigate the tools and theories in Digital Humanities.
+      </p>
+      <p>
+        We would also like to thank Trove which has been a valuable resource in
+        providing rich and relevant data for our project.
+      </p>
+    </article>
   );
 }
