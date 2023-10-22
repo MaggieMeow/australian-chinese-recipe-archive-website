@@ -89,12 +89,12 @@ function MyBook() {
     <>
       <HTMLFlipBook
         usePortrait={isMobile}
-        minWidth={isPadWidth ? window.innerWidth - 100 : 350}
-        width={isPadWidth ? window.innerWidth - 100 : 350}
+        minWidth={isPadWidth ? window.innerWidth - 100 : 330}
+        width={isPadWidth ? window.innerWidth - 100 : 330}
         maxWidth={600}
-        height={isPadWidth ? window.innerHeight - 100 : 500}
-        minHeight={isPadWidth ? window.innerHeight - 100 : 500}
-        maxHeight={isPadWidth ? window.innerHeight - 100 : 500}
+        height={isPadWidth ? window.innerHeight - 100 : 450}
+        minHeight={isPadWidth ? window.innerHeight - 100 : 450}
+        maxHeight={isPadWidth ? window.innerHeight - 100 : 450}
         autoSize={isPadWidth ? false : true}
         size="stretch"
         showCover={true}
