@@ -58,7 +58,7 @@ export const recipes = [
   },
   {
     title: "gingembre a la chantilly",
-    coverImageUrl: "illustrations/gingembre a la chantilly.png",
+    coverImageUrl: "illustrations/gingembre-a-la-chantilly.png",
     screenshotUrls: ["screenshots/gingembre-a-la-chantilly.png"],
     content:
       "Gingembre a la Chantilly. —Take from 4 to 8 oz. of. Chinese preserved ginger. Cut it quickly into neat squares; Pile those up.: in the centre of a fancy dish. If time permits, whip, up a gill of cream (the contents of one of the sixpenny brown pots gives about this quantity), and pile in on top of the ginger. If pressed for time, pour the cream over it. It does not require sweetening, as the ginger is in itself excessively sweet. Then take a gill of the ginger syrup, add to it tablespoonful of either brandy, rum, or whisky, as preferred. Pour over the cream, and serve.",
