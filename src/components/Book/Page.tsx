@@ -63,15 +63,21 @@ export const Page = forwardRef<
   );
 });
 
-export const PageCover = forwardRef<HTMLDivElement, { children?: ReactNode }>(
-  (props, ref) => {
-    return (
-      <div className="page page-cover" data-density="hard" ref={ref}>
-        <div className="page-content">{props.children}</div>
-      </div>
-    );
-  }
-);
+export const PageCover = forwardRef<
+  HTMLDivElement,
+  { isBackCover?: boolean; children?: ReactNode }
+>((props, ref) => {
+  const isBackCover = props.isBackCover;
+  return (
+    <div
+      className={`page ${isBackCover ? "page-back-cover" : "page-cover"}`}
+      data-density="hard"
+      ref={ref}
+    >
+      <div className="page-content">{props.children}</div>
+    </div>
+  );
+});
 
 export const IllustrationPage = forwardRef<
   HTMLDivElement,

@@ -140,6 +140,9 @@
     background-color: hsl(35, 50%, 90%);
     border: solid 1px hsl(35, 20%, 50%);
   }
+  &.page-back-cover {
+    background-image: url("../../assets/back-cover.webp");
+  }
 
   &.page-cover {
     // background-color: hsl(35, 45%, 80%);

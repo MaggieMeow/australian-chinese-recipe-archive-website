@@ -112,7 +112,7 @@ function MyBook() {
         ))} */}
         {pages}
 
-        <PageCover>THE END</PageCover>
+        <PageCover isBackCover={true}></PageCover>
       </HTMLFlipBook>
 
       <button
