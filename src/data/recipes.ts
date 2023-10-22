@@ -41,6 +41,30 @@ export const recipes = [
     tags: ["preservation"],
   },
   {
+    title: "preserved ginger",
+    coverImageUrl: "public/illustrations/preserved-ginger.webp",
+    screenshotUrls: ["public/screenshots/preserved-ginger-screenshot.jpeg"],
+    content: `After many inquiries I am unable to tell you where green ginger roots can be bought,
+      but I can give you an excellent substitute if you wish to
+      preserve ginger for your own use. Take the common dry
+      ginger, selecting large pieces, put them in cold water,
+      place on the fire, and simmer until tender; when done
+      put into cold water; take out and drain. Weigh the
+      ginger and an equal weight of white sugar. Clarify the
+      sugar, and when the syrup, is hot add the ginger and
+      simmer constantly until the sugar has penetrated right
+      through the ginger. Do not use the sugar too hot or
+      the ginger will shrink and not take the sugar. By a
+      little care in preparation a preserve quite equal to
+      that for which the Chinese are so famed may be made.
+      `,
+    date: "Saturday 15 December 1894",
+    troveUrl: "https://trove.nla.gov.au/newspaper/article/162071144",
+    publisher:
+      "The Sydney Mail and New South Wales Advertiser (NSW : 1871 - 1912)",
+    tags: ["preservation"],
+  },
+  {
     title: "gingembre a la chantilly",
     coverImageUrl: "public/illustrations/gingembre a la chantilly.png",
     screenshotUrls: [
@@ -84,7 +108,7 @@ export const recipes = [
     tags: ["misidentified", "preservation"],
   },
   {
-    title: "almond wafers blanch",
+    title: "chinese almond wafers",
     coverImageUrl: "public/illustrations/chinese wafers.png",
     screenshotUrls: ["public/screenshots/chinese wafers.png"],
     content: `Blanch 1/2 cup almonds, halve, and
