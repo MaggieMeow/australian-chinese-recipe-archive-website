@@ -102,14 +102,7 @@ function MyBook() {
         mobileScrollSupport={true}
         ref={bookHandlerRef}
       >
-        <PageCover>
-          {/* <h1>Evolution of Chinese Recipes in Australian Print</h1>
-          <h2>Curated by Maggie, Carina, Sihan, Lesin and Jim.</h2> */}
-        </PageCover>
-
-        {/* {recipes.map((recipe, index) => (
-          <Page key={recipe.title} recipe={recipe} number={index} />
-        ))} */}
+        <PageCover></PageCover>
         {pages}
 
         <PageCover isBackCover={true}></PageCover>

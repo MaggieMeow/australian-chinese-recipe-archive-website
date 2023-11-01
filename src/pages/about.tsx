@@ -63,6 +63,14 @@ export function AboutPage() {
           </p>
         </li>
       </ul>
+
+      <h2>License</h2>
+      <div
+        className="license"
+        dangerouslySetInnerHTML={{
+          __html: `<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://australian-chinese-recipe-archive-website.vercel.app/">Stir-frying the Melting Pot: Chinese Recipes in Australian Print (1850)</a> by <span property="cc:attributionName">Maggie Yundi Li, Sihan Zhao, Carina Bo, Lesin Liu, Jim Gan</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="display:inline-block;height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="display:inline-block;height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="display:inline-block;height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="display:inline-block;height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>`,
+        }}
+      />
     </article>
   );
 }

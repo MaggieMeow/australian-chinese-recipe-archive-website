@@ -97,21 +97,50 @@ export const recipes = [
     title: "dim sims",
     coverImageUrl: "illustrations/dim sims.png",
     screenshotUrls: ["screenshots/dim-sims.png"],
-    content:
-      'Dim Sims Mr H (Melbourne) supplies this recipe for making dim sims: -Chicken pork or a mixture of both, may be minced or finely shopped to form the base of the filling. Blend with either finely chopped water chestnuts obtainable from a Chinese restaurant and a little "Seeyou" sauce (or Worcester sauce may be used). Add pepper and salt to taste, and fill with the mixture small cases made from leaf macaroni. Ordinary boiling paste may be used if the macaroni is unobtainable Stand in a saucepan containing sufficient boiling water to cover them and simmer gently. Other seasonings may be tested as the art of making this Chinese dish is mastered.',
-    date: "Wednesday 15 May 1935",
-    troveUrl: "https://trove.nla.gov.au/newspaper/article/12238963",
-    publisher: "The Argus (Melbourne, Vic. : 1848 - 1957)",
+    content: `“Sometime”: It has taken some time, but I  
+    have just got from a Chinese cook the recipe  
+    for Dim-sims wanted by “Curious” (W.M.  
+    12/12/’B3) : Mix 11b. rice-flour to a firm paste  
+    with boiling water, roll out as thinly as pos  
+    sible and wipe the surface over with a little  
+    hot peanut oil. Cut paste into (approx.) 36  
+    square pieces. Chop up finely 1/2 lb. fat pork,  
+    1/4 lb. shrimps, 2oz, chestnuts and 2oz. Chinese  
+    mushrooms (weighed before soaking). Mix all  
+    these ingredients together, put a little of the  
+    mixture on each square of paste, fold in tri  
+    angular shape and press the edges together  
+    (when made in the shape of old-fashioned  
+    money-bags they are called Gow-gees). Place  
+    in one layer only in each basin, and  
+    steam. (Chinese mushrooms are dried and may  
+    be bought at Chinese provision shops.)`,
+    date: "12 December 1933",
+    troveUrl:
+      "https://nla.gov.au/nla.obj-415154078/view?sectionId=nla.obj-428272511&partId=nla.obj-415197505",
+    publisher: "The Australian woman's mirror",
     tags: ["dish"],
   },
   {
     title: "chinese chews",
-    coverImageUrl: "illustrations/chinese chews dessert.png",
-    screenshotUrls: ["screenshots/chinese-chews.png"],
-    date: "4 June 1935",
-    content: `One cup sugar, 31b. butter, 1 egg, 1 cup flour, 3 teaspoons cocoa, vanilla to taste, 1 cup chopped dates or walnuts, or both. Cream butter and sugar, add egg and beat again. Then add dry ingredients and fruit. This is a thick enough mixture to spread over greased meat-tin or long sponge-roll tin. Take out of oven before it looks  thoroughly cooked (about 3/4 hour) ; this is important, for if it is well cooked it will be dry instead of chewy. Cut into squares in tin while hot then leave to cool.— \"Ngawini,\” Wanganui, N.Z.  ",`,
-    troveUrl: "https://nla.gov.au/nla.obj-566554307",
-    publisher: "The Australian woman's mirror.",
+    coverImageUrl: "illustrations/chinese-chews.webp",
+    screenshotUrls: ["screenshots/chinese-chews.jpeg"],
+    date: "Sat 31 Jan 1931",
+    content: `Chinese Chews.—One cup flour,
+    one cup wainuts, one cup stoned dates,
+    one cup sagar, one teaspoon baking-powder.
+    Chop nuts and dates and
+    put, with all dry ingredients, into a
+    basin Beat two eggs well, add one
+    dessertspoon melted butter, add to
+    other ingredients and mix well. Pour
+    about 1/4 in. to 1/2 in. deep in a greased
+    square tin and bake half-an-hour in a
+    moderate oven. Sprinkle with icing
+    sugar when cooked and cut into squares
+    while hot.`,
+    troveUrl: "https://trove.nla.gov.au/newspaper/article/257411004",
+    publisher: " The Northern Grazier and Miner (Leonora, WA : 1929 - 1944)",
     tags: ["dessert"],
   },
 
