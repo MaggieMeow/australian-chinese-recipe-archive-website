@@ -13,6 +13,15 @@ export function DataPage() {
       <h1 className="c6" id="h.gk93eiytgon">
         <span className="c16">Data</span>
       </h1>
+      <div>
+        <span className="c9">
+          Our datasets and data pipeline are available via{" "}
+          <a href="https://github.com/MaggieMeow/australian-chinese-recipe-data-mining">
+            https://github.com/MaggieMeow/australian-chinese-recipe-data-mining
+          </a>
+        </span>
+      </div>
+
       <h2 className="c0" id="h.wm4xb0kscwf3">
         <span className="c8">Data collection from Trove and Data Cleaning</span>
       </h2>
@@ -38,7 +47,7 @@ export function DataPage() {
       </ul>
       <p className="c11">
         <span>
-          <img alt="" src={image4} title="" />
+          <img className="shadow-md" alt="" src={image4} title="" />
         </span>
       </p>
       <ul className="c1 lst-kix_jf6ufs9e3fc6-0 start">
@@ -83,7 +92,7 @@ export function DataPage() {
       </ul>
       <p className="c11 c18">
         <span>
-          <img alt="" src={image6} title="" />
+          <img className="shadow-md" alt="" src={image6} title="" />
         </span>
       </p>
       <ul className="c1 lst-kix_jf6ufs9e3fc6-0">
@@ -162,19 +171,31 @@ export function DataPage() {
           <span className="c9">98 Newspaper entries by year</span>
         </li>
         <li className="c3 li-bullet-0">
+          <span className="c9">
+            The earliest Chinese recipe in Australian newspapers was in 1870,
+            though their presence remained sporadic until the 1930s. A
+            significant surge in these recipes is evident in the early 1930s,
+            culminating in a peak of 21 entries in 1939. However, the subsequent
+            decade saw a sharp decline in their frequency. It is noteworthy that
+            this trend persists even when the annual frequency is normalized
+            against Trove's count of newspaper articles for the corresponding
+            years.
+          </span>
+        </li>
+        <li className="c3 li-bullet-0">
           <span>
-            <img alt="" src={image2} title="" />
+            <img className="shadow-md" alt="" src={image2} title="" />
           </span>
         </li>
       </ul>
       <p className="c14">
         <span>
-          <img alt="" src={image3} title="" />
+          <img className="shadow-md" alt="" src={image3} title="" />
         </span>
       </p>
       <p className="c14">
         <span>
-          <img alt="" src={image1} title="" />
+          <img className="shadow-md" alt="" src={image1} title="" />
         </span>
       </p>
       <p className="c13">
@@ -184,13 +205,21 @@ export function DataPage() {
         <li className="c3 li-bullet-0">
           <span className="c9">49 Magazine entries</span>
         </li>
+        <li className="c3 li-bullet-0">
+          <span className="c9">
+            For magazines, the frequency distribution in Figure 4 shows no
+            discernible trend, possibly due to the small data size. However, it
+            is notable that the first Chinese recipe in Australian magazines
+            only appeared in 1925.
+          </span>
+        </li>
       </ul>
       <h2 className="c0" id="h.agevx822lsdt">
         <span>
-          <img alt="" src={image5} title="" />
+          <img className="shadow-md" alt="" src={image5} title="" />
         </span>
         <span>
-          <img alt="" src={image7} title="" />
+          <img className="shadow-md" alt="" src={image7} title="" />
         </span>
       </h2>
       <h2 className="c0 c17" id="h.yu8k5wnqn3hn">

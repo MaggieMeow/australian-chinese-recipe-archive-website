@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React from "react";
+import React, { createRef, useEffect, useMemo, useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
@@ -34,6 +34,61 @@ const Layout = () => {
     e.stopPropagation();
   }
 
+  const bookContainerRef = createRef<HTMLDivElement>();
+
+  const [transforms, setTransforms] = useState<Record<any, any>>({
+    translateY: "calc(95%)",
+  });
+
+  useEffect(() => {
+    // const containerParent = bookContainerRef.current;
+
+    if (isShelfOpen) {
+      const container = bookContainerRef.current;
+      if (container) {
+        const { height } = container.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        console.log({
+          height,
+        });
+        const currTransform = container.computedStyleMap().get("transform");
+        console.log(currTransform);
+        if (height > windowHeight) {
+          const ratio = windowHeight / height;
+          setTransforms((prev) => ({
+            ...prev,
+            scale: ratio * 0.95,
+          }));
+          // containerParent.style.transform = `scale(${0.8})`;
+        }
+        console.log(container);
+      }
+
+      setTransforms((prev) => ({
+        ...prev,
+        translateY: "0",
+      }));
+    } else {
+      // closing, remove the scaling
+      setTransforms((prev) => ({
+        ...prev,
+        translateY: "calc(95%)",
+        scale: 1,
+      }));
+    }
+  }, [isShelfOpen]);
+
+  const transformStyle = useMemo(() => {
+    let result = "";
+    Object.keys(transforms).forEach((tr) => {
+      result += `${tr}(${transforms[tr]}) `;
+    });
+    return result;
+  }, [transforms]);
+  console.log({
+    transformStyle,
+    transforms,
+  });
   return (
     <div>
       <div className={styles.mainContentContainer}>
@@ -45,21 +100,28 @@ const Layout = () => {
         </section>
       </div>
 
-      <div
-        className={cx(styles.bookShelf, isShelfOpen && styles.bookShelfOpen)}
-      >
+      <div>
         <div
-          onClickCapture={onBookClick}
-          onTouchStartCapture={onBookClick}
-          onTouchEnd={preventEvent}
+          ref={bookContainerRef}
           style={{
-            position: "absolute",
-            width: "100%",
-            height: "calc(100% + 20px)",
-            zIndex: isShelfOpen ? 0 : 100,
+            transform: transformStyle,
+            transformOrigin: "bottom",
           }}
-        />
-        <MyBook />
+          className={cx(styles.bookShelf, isShelfOpen && styles.bookShelfOpen)}
+        >
+          <div
+            onClickCapture={onBookClick}
+            onTouchStartCapture={onBookClick}
+            onTouchEnd={preventEvent}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "calc(100% + 20px)",
+              zIndex: isShelfOpen ? 0 : 100,
+            }}
+          />
+          <MyBook />
+        </div>
       </div>
     </div>
   );
