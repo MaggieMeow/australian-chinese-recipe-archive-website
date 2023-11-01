@@ -421,7 +421,7 @@ export function NarrativePage() {
       <h5>
         <a
           onClick={() => {
-            setInterestedPage(19);
+            setInterestedPage(21);
           }}
           className="font-bold underline"
         >
@@ -443,16 +443,24 @@ export function NarrativePage() {
         Australian diet, providing various health benefits as a result.
       </p>
       <p>
-        Notably, the article featured a recipe for sorrel soup, a dish popular
-        in Eastern Europe (iFood.tv), suggesting readers add "half a cup of
-        finely chopped watercress, or Chinese mustard, just before serving".
-        This adaptation, incorporating a Chinese vegetable into a traditionally
-        Eastern European dish, is a practical response to food scarcity. It
-        indicates the growing cultural syncretism in Australia by combining
-        ingredients and culinary methods from distinct cultures within a single
-        dish. This instance suggests that the pragmatic need to adapt to food
-        rationing during the mid-20th century served as a catalyst for the
-        development of multiculturalism in Australia.
+        Notably, the article featured a recipe for{" "}
+        <a
+          onClick={() => {
+            setInterestedPage(21);
+          }}
+          className="font-bold underline"
+        >
+          sorrel soup
+        </a>
+        , a dish popular in Eastern Europe (iFood.tv), suggesting readers add
+        "half a cup of finely chopped watercress, or Chinese mustard, just
+        before serving". This adaptation, incorporating a Chinese vegetable into
+        a traditionally Eastern European dish, is a practical response to food
+        scarcity. It indicates the growing cultural syncretism in Australia by
+        combining ingredients and culinary methods from distinct cultures within
+        a single dish. This instance suggests that the pragmatic need to adapt
+        to food rationing during the mid-20th century served as a catalyst for
+        the development of multiculturalism in Australia.
       </p>
       <h3 className="my-8">4. Conclusion</h3>
       <p>

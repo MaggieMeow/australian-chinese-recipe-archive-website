@@ -38,6 +38,7 @@ const Layout = () => {
 
   const [transforms, setTransforms] = useState<Record<any, any>>({
     translateY: "calc(95%)",
+    translateZ: "0",
   });
 
   useEffect(() => {

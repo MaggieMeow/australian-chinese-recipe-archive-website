@@ -41,7 +41,7 @@ function MyBook() {
       openBook();
       setTimeout(() => {
         bookHandler.pageFlip().flip(interestedPage);
-      }, 0);
+      }, 10);
     }
   }, [interestedPage]);
 
