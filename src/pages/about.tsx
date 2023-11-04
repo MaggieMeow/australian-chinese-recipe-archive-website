@@ -15,12 +15,13 @@ export function AboutPage() {
           <h3>Maggie Yundi Li, Web, Data & Content Specialist</h3>
           <p>
             Maggie collected and cleaned data from Trove to construct a dataset
-            of relevant Chinese recipes. Maggie created and visualized the data,
-            and made corrections on Trove entries for selected recipes. She also
-            developed the website to present our historical analysis and
-            selected Chinese recipes. Additionally, she contributed to the
-            historical and theoretical research underpinning this project and
-            the writing and editing of our analysis and project report.
+            of relevant Chinese recipes. She created and visualized the
+            datasets, and made corrections on Trove entries for selected
+            recipes. She also developed the website to present our historical
+            analysis and selected Chinese recipes. Additionally, she directed
+            the historical and theoretical research underpinning this project.
+            She also wrote and edited the majority of our analysis and project
+            report.
           </p>
         </li>
         <li>
